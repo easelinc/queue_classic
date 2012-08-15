@@ -50,5 +50,13 @@ module QC
       end
     end
 
+    def job_count(method, *args)
+      QC.log_yield(:measure => 'queue.count') do
+        s = "SELECT COUNT(*) FROM #{TABLE_NAME} WHERE q_name = $1 AND method = $2 AND args = $3"
+        r = Conn.execute(s, name, method, JSON.dump(args))
+        r["count"].to_i
+      end
+    end
+
   end
 end

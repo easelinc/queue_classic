@@ -182,6 +182,12 @@ you can enable the debug output by setting the `DEBUG` environment variable:
 export DEBUG="true"
 ```
 
+## Job Counts
+
+If you'd like to use `QC.job_count` it is highly recommended that you
+you create an additional index which can be run by using
+`QC::Setup.create_job_count_index`.
+
 ## Support
 
 If you think you have found a bug, feel free to open an issue. Use the following template for the new issue:

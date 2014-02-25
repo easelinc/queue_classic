@@ -9,11 +9,11 @@ CREATE TABLE queue_classic_jobs (
 );
 
 -- If json type is available, use it for the args column.
-perform * from pg_type where typname = 'json';
-if found then
-  alter table queue_classic_jobs alter column args type json using (args::json);
-end if;
-
+--perform * from pg_type where typname = 'json';
+--if found then
+--  alter table queue_classic_jobs alter column args type json using (args::json);
+--end if;
+--
 end $$ language plpgsql;
 
 create function queue_classic_notify() returns trigger as $$ begin
